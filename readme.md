@@ -1,117 +1,173 @@
 # Real-Time Edge Detection Viewer
 
-## Overview
+A web-based real-time computer vision application featuring camera integration, edge detection, and WebGL rendering. This application processes live camera feeds with various image filters including Canny edge detection, all running directly in the browser.
 
-This is a full-stack web application featuring real-time computer vision capabilities with camera integration, edge detection, and WebGL rendering. The application provides live camera feed processing with various image filters and performance monitoring.
+## ✅ Features Implemented
 
-## System Architecture
+### Core Features
+- **Live Camera Integration**: Real-time video capture from webcam or external cameras
+- **Multiple Image Filters**:
+  - Canny Edge Detection with adjustable thresholds
+  - Grayscale conversion
+  - Gaussian Blur with configurable radius
+  - Binary Threshold filtering
+- **WebGL Hardware Acceleration**: High-performance rendering using WebGL shaders
+- **Multi-Device Support**: Automatic camera device enumeration and switching
+- **Real-Time Performance Monitoring**: FPS tracking, frame time, processing time, and memory usage
 
-### Frontend Architecture
-- **Framework**: React with TypeScript
-- **UI Library**: Shadcn/ui components with Radix UI primitives
-- **Styling**: Tailwind CSS with dark theme support
-- **State Management**: Custom hooks for camera, WebGL, image processing, and performance monitoring
-- **Build Tool**: Vite with React plugin
-- **Router**: Wouter for client-side routing
+### Advanced Features
+- **Interactive Controls**: Live parameter adjustment for all filters
+- **Performance Analytics**: Visual FPS history graph and detailed metrics
+- **Frame Capture**: Download processed frames as PNG images
+- **Responsive Design**: Dark theme with modern UI components
+- **Error Handling**: Comprehensive error reporting and recovery
+- **Cross-Platform Compatibility**: Works on Windows, Mac, and Linux
 
-### Backend Architecture
-- **Framework**: Express.js with TypeScript
-- **Development**: tsx for development server
-- **Build**: esbuild for production bundling
-- **Module System**: ES modules throughout
+### Technical Features
+- **Pure JavaScript Computer Vision**: Custom implementation of image processing algorithms
+- **WebRTC Integration**: Advanced camera access and stream management
+- **TypeScript**: Full type safety throughout the application
+- **Modern React**: Hooks-based architecture with performance optimization
+- **Real-Time Processing Pipeline**: Efficient frame processing and rendering loop
 
-### Data Storage
-- **ORM**: Drizzle ORM with PostgreSQL support
-- **Database**: PostgreSQL (via Neon Database connector)
-- **Schema**: Simple user table with username/password fields
-- **Memory Storage**: In-memory storage implementation for development
+## 📷 Screenshots
 
-### Authentication & Authorization
-- **Session Management**: connect-pg-simple for PostgreSQL session storage
-- **Schema**: Basic user authentication structure defined
+### Main Interface
+![Main Interface](docs/screenshot-main.png)
+*Real-time edge detection with live camera feed and control panel*
 
-## Key Components
-
-### Computer Vision System
-- **Core Library**: Custom ComputerVision class implementing image processing algorithms
-- **Filters**: Canny edge detection, grayscale conversion, blur, and threshold filters
-- **Real-time Processing**: Browser-based image processing with performance monitoring
-
-### WebGL Rendering
-- **Renderer**: Custom WebGL implementation for hardware-accelerated image rendering
-- **Shaders**: Vertex and fragment shaders for efficient image display
-- **Canvas Integration**: Direct canvas manipulation for real-time updates
-
-### Camera Integration
-- **Media API**: WebRTC getUserMedia for camera access
-- **Device Management**: Enumeration and switching between multiple camera devices
-- **Frame Capture**: Real-time video frame extraction and processing
+### Filter Comparison
+![Filter Comparison](docs/screenshot-filters.png)
+*Various image filters applied to live video stream*
 
 ### Performance Monitoring
-- **Metrics**: FPS tracking, frame time measurement, processing time, and memory usage
-- **History**: Rolling FPS history for performance analysis
-- **Alerts**: Automatic performance warning detection
+![Performance Monitoring](docs/screenshot-performance.png)
+*Real-time performance metrics and FPS tracking*
 
-## Data Flow
+## ⚙️ Setup Instructions
 
-1. **Camera Input**: Video stream captured via getUserMedia API
-2. **Frame Extraction**: Video frames extracted to canvas for processing
-3. **Image Processing**: Filters applied using custom computer vision algorithms
-4. **WebGL Rendering**: Processed frames rendered using WebGL for smooth display
-5. **Performance Tracking**: Real-time metrics collected and displayed
-6. **User Controls**: Settings panel allows real-time filter adjustments
+### Prerequisites
+- **Node.js** 18+ and npm
+- **Modern Web Browser** with WebRTC support (Chrome, Firefox, Safari, Edge)
+- **Camera Access**: Webcam or external camera device
 
-## External Dependencies
+### Installation Steps
 
-### Frontend Dependencies
-- React ecosystem (React, React DOM, React Router via Wouter)
-- Radix UI primitives for accessible components
-- TanStack Query for data fetching
-- Tailwind CSS for styling
-- Lucide React for icons
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/real-time-edge-detection-viewer.git
+   cd real-time-edge-detection-viewer
+   ```
 
-### Backend Dependencies
-- Express.js web framework
-- Drizzle ORM for database operations
-- Neon Database serverless connector
-- Session management via connect-pg-simple
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-### Development Tools
-- Vite for development and building
-- TypeScript for type safety
-- ESBuild for production bundling
-- Replit-specific plugins for development environment
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
 
-## Deployment Strategy
-
-### Development Environment
-- **Runtime**: Node.js 20 with Replit modules
-- **Database**: PostgreSQL 16 via Replit
-- **Port Configuration**: Local port 5000, external port 80
-- **Hot Reload**: Vite development server with HMR
+4. **Access the Application**
+   - Open your browser to `http://localhost:5000`
+   - Allow camera permissions when prompted
+   - Click "Start Camera" to begin processing
 
 ### Production Build
-- **Frontend**: Vite build output to `dist/public`
-- **Backend**: ESBuild bundle to `dist/index.js`
-- **Deployment**: Replit autoscale deployment target
-- **Static Assets**: Served via Express static middleware
-
-### Configuration Management
-- Environment variables for database connection
-- Replit-specific configuration via `.replit` file
-- TypeScript configuration for monorepo structure
-
-## Changelog
-
-```
-Changelog:
-- June 14, 2025. Initial setup and debugging
-- June 14, 2025. Fixed port conflicts and Select component errors
-- June 14, 2025. Created downloadable project archive (real-time-edge-detection-viewer.tar.gz)
+```bash
+npm run build
+npm start
 ```
 
-## User Preferences
+## 🧠 Architecture Overview
+
+### Frontend Architecture
+- **React + TypeScript**: Component-based UI with full type safety
+- **Custom Hooks**: Modular state management for camera, WebGL, and image processing
+- **Tailwind CSS + Shadcn/ui**: Modern styling with accessible components
+- **Vite**: Fast development server with hot module replacement
+
+### Computer Vision Pipeline
 
 ```
-Preferred communication style: Simple, everyday language.
+Camera Input → Frame Extraction → Image Processing → WebGL Rendering → Display
+     ↓              ↓                    ↓               ↓            ↓
+WebRTC API    Canvas ImageData    Custom Algorithms   GPU Shaders   Screen
 ```
+
+### Core Processing Flow
+
+1. **Camera Capture**: WebRTC `getUserMedia` API captures live video stream
+2. **Frame Extraction**: Video frames extracted to HTML5 Canvas as ImageData
+3. **Image Processing**: Custom JavaScript algorithms process pixel data:
+   - Gaussian blur for noise reduction
+   - Sobel operator for gradient calculation
+   - Non-maximum suppression for edge thinning
+   - Double threshold and edge tracking for Canny detection
+4. **WebGL Rendering**: Processed frames rendered using custom shaders
+5. **Performance Monitoring**: Real-time metrics collection and display
+
+### Backend Architecture
+- **Express.js**: RESTful API server with TypeScript
+- **In-Memory Storage**: Development-ready data persistence
+- **WebSocket Support**: Real-time communication capabilities
+- **Vite Integration**: Seamless development experience
+
+### Key Technical Decisions
+
+- **Browser-Based Processing**: No server-side dependencies, runs entirely in browser
+- **WebGL Acceleration**: Hardware-accelerated rendering for smooth performance
+- **Custom Algorithms**: Pure JavaScript implementation for educational transparency
+- **TypeScript Throughout**: Type safety from frontend to backend
+- **Modern Web APIs**: WebRTC, WebGL, Canvas API integration
+
+## 🚀 Usage
+
+1. **Start Camera**: Click the "Start Camera" button to access your webcam
+2. **Select Device**: Choose from available camera devices in the dropdown
+3. **Enable Processing**: Toggle image processing on/off
+4. **Choose Filter**: Select from edge detection, grayscale, blur, or threshold
+5. **Adjust Parameters**: Fine-tune filter settings using the sliders
+6. **Monitor Performance**: View real-time FPS and processing metrics
+7. **Capture Frames**: Download processed images as PNG files
+
+## 🛠️ Development
+
+### Project Structure
+```
+├── client/src/          # React frontend application
+│   ├── components/      # UI components and controls
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Computer vision and WebGL utilities
+│   └── pages/          # Application pages
+├── server/             # Express backend
+└── shared/             # Shared types and schemas
+```
+
+### Key Files
+- `lib/computer-vision.ts`: Image processing algorithms
+- `lib/webgl-utils.ts`: WebGL rendering engine
+- `hooks/use-camera.tsx`: Camera access and management
+- `hooks/use-image-processor.tsx`: Real-time filter application
+- `components/control-panel.tsx`: User interface controls
+
+## 📝 License
+
+MIT License - see LICENSE file for details
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 🔗 Demo
+
+[Live Demo](https://your-deployment-url.com) - Try the application online
+
+---
+
+**Built with modern web technologies for real-time computer vision in the browser**
