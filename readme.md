@@ -140,5 +140,3 @@ https://github.com/user-attachments/assets/fd7fbe0f-ad67-461e-ae79-93cf69e34ba8
 
 
 ---
-
-**Built with modern web technologies for real-time computer vision in the browser**
