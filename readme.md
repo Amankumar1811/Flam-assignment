@@ -32,17 +32,13 @@ A web-based real-time computer vision application featuring camera integration, 
 
 ## 📷 Screenshots
 
-### Main Interface
-![Main Interface](docs/screenshot-main.png)
-*Real-time edge detection with live camera feed and control panel*
+![Screenshot 2025-06-14 223218](https://github.com/user-attachments/assets/2ec2d4bf-eb32-41f9-97cc-5cde57855a61)
 
-### Filter Comparison
-![Filter Comparison](docs/screenshot-filters.png)
-*Various image filters applied to live video stream*
+![Screenshot 2025-06-14 223159](https://github.com/user-attachments/assets/89e54863-8b0c-4681-bc08-4a9153811646)
 
-### Performance Monitoring
-![Performance Monitoring](docs/screenshot-performance.png)
-*Real-time performance metrics and FPS tracking*
+![Screenshot 2025-06-14 223131](https://github.com/user-attachments/assets/5104f1a8-a5e8-4b22-92fd-99b2ed5860c4)
+
+![Screenshot 2025-06-14 223105](https://github.com/user-attachments/assets/124bf7e5-8e72-4ba0-af2a-cc61fd40be04)
 
 ## ⚙️ Setup Instructions
 
@@ -51,34 +47,7 @@ A web-based real-time computer vision application featuring camera integration, 
 - **Modern Web Browser** with WebRTC support (Chrome, Firefox, Safari, Edge)
 - **Camera Access**: Webcam or external camera device
 
-### Installation Steps
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/real-time-edge-detection-viewer.git
-   cd real-time-edge-detection-viewer
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start Development Server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Access the Application**
-   - Open your browser to `http://localhost:5000`
-   - Allow camera permissions when prompted
-   - Click "Start Camera" to begin processing
-
-### Production Build
-```bash
-npm run build
-npm start
-```
 
 ## 🧠 Architecture Overview
 
@@ -130,7 +99,7 @@ WebRTC API    Canvas ImageData    Custom Algorithms   GPU Shaders   Screen
 4. **Choose Filter**: Select from edge detection, grayscale, blur, or threshold
 5. **Adjust Parameters**: Fine-tune filter settings using the sliders
 6. **Monitor Performance**: View real-time FPS and processing metrics
-7. **Capture Frames**: Download processed images as PNG files
+
 
 ## 🛠️ Development
 
@@ -152,9 +121,7 @@ WebRTC API    Canvas ImageData    Custom Algorithms   GPU Shaders   Screen
 - `hooks/use-image-processor.tsx`: Real-time filter application
 - `components/control-panel.tsx`: User interface controls
 
-## 📝 License
 
-MIT License - see LICENSE file for details
 
 ## 🤝 Contributing
 
@@ -166,7 +133,11 @@ MIT License - see LICENSE file for details
 
 ## 🔗 Demo
 
-[Live Demo](https://your-deployment-url.com) - Try the application online
+
+
+https://github.com/user-attachments/assets/fd7fbe0f-ad67-461e-ae79-93cf69e34ba8
+
+
 
 ---
 
